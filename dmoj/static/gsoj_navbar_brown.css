@@ -1,0 +1,122 @@
+/* ===== HVOJ Brown Theme ===== */
+:root {
+    --hvoj-brown: #795548;
+    --hvoj-brown-dark: #5d4037;
+    --hvoj-brown-light: #a1887f;
+    --hvoj-cream: #fff8e1;
+    --hvoj-border: #d7ccc8;
+}
+
+/* Navbar */
+.navbar,
+.navbar-default,
+.navbar-inverse {
+    background: var(--hvoj-brown) !important;
+    border-color: var(--hvoj-brown-dark) !important;
+}
+
+.navbar a,
+.navbar-brand,
+.navbar-nav > li > a,
+.navbar .nav-link {
+    color: var(--hvoj-cream) !important;
+}
+
+.navbar a:hover,
+.navbar-nav > li > a:hover,
+.navbar-nav > .active > a {
+    background: var(--hvoj-brown-dark) !important;
+    color: #fff !important;
+}
+
+/* Tiêu đề bảng */
+.table thead,
+.table > thead > tr > th,
+table thead th {
+    background: var(--hvoj-brown) !important;
+    color: var(--hvoj-cream) !important;
+    border-color: var(--hvoj-brown-dark) !important;
+}
+
+.table thead a,
+table thead th a {
+    color: #fff8e1 !important;
+}
+
+/* Tiêu đề panel và card */
+.panel-primary > .panel-heading,
+.card-header,
+.panel-heading {
+    background: var(--hvoj-brown) !important;
+    border-color: var(--hvoj-brown-dark) !important;
+    color: var(--hvoj-cream) !important;
+}
+
+.panel-primary {
+    border-color: var(--hvoj-brown) !important;
+}
+
+/* Nút bấm */
+.btn-primary,
+.btn-primary:focus {
+    background: var(--hvoj-brown) !important;
+    border-color: var(--hvoj-brown-dark) !important;
+    color: #fff8e1 !important;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+    background: var(--hvoj-brown-dark) !important;
+    border-color: #4e342e !important;
+    color: #fff !important;
+}
+
+.btn-secondary,
+.btn-default {
+    border-color: var(--hvoj-brown-light) !important;
+}
+
+.btn-outline-primary {
+    color: var(--hvoj-brown) !important;
+    border-color: var(--hvoj-brown) !important;
+}
+
+.btn-outline-primary:hover {
+    background: var(--hvoj-brown) !important;
+    color: #fff8e1 !important;
+}
+
+/* Phân trang */
+.pagination > li > a,
+.pagination > li > span {
+    color: var(--hvoj-brown) !important;
+    border-color: var(--hvoj-border) !important;
+}
+
+.pagination > .active > a,
+.pagination > .active > span {
+    background: var(--hvoj-brown) !important;
+    border-color: var(--hvoj-brown) !important;
+    color: #fff8e1 !important;
+}
+
+.pagination > li > a:hover {
+    background: #efebe9 !important;
+}
+
+/* Nhãn và trạng thái */
+.label-primary,
+.badge-primary {
+    background: var(--hvoj-brown) !important;
+}
+
+/* Đường viền và tiêu đề phụ */
+hr {
+    border-color: var(--hvoj-border) !important;
+}
+
+h1, h2, h3, h4, h5 {
+    border-color: var(--hvoj-border);
+}
+
+/* Không đổi màu các trạng thái chấm bài đúng/sai */

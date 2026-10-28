@@ -1,9 +1,42 @@
+
 {% extends "blog/list.html" %}
+
 {% block before_posts %}
+    <div style="
+        padding: 28px 32px;
+        margin: 20px 0;
+        border-radius: 16px;
+        background: linear-gradient(135deg, #172554, #1d4ed8, #0891b2);
+        color: white;
+        box-shadow: 0 8px 24px rgba(37, 99, 235, 0.2);
+    ">
+        <h2 style="margin: 0 0 12px; font-size: 28px; font-weight: 700;">
+            🎉 Chào mừng đến với Hùng Vương Online Judge Online Judge chính thức của Trường THCS Hùng Vương!
+        </h2>
+
+        <p style="margin: 0 0 18px; font-size: 16px; line-height: 1.8;">
+            Nền tảng chấm bài lập trình trực tuyến dành cho những người yêu thích
+            công nghệ và thuật toán. Hãy rèn luyện tư duy, thử sức với những bài toán
+            thú vị và từng bước nâng cao kỹ năng lập trình của bạn.
+        </p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+            <span style="padding: 7px 12px; background: rgba(255,255,255,.15); border-radius: 8px;">💻 Python</span>
+            <span style="padding: 7px 12px; background: rgba(255,255,255,.15); border-radius: 8px;">⚡ C++</span>
+            <span style="padding: 7px 12px; background: rgba(255,255,255,.15); border-radius: 8px;">🧩 Thuật toán</span>
+            <span style="padding: 7px 12px; background: rgba(255,255,255,.15); border-radius: 8px;">🌐 Hơn 60 ngôn ngữ lập trình</span>
+        </div>
+
+        <p style="margin: 0; font-size: 15px; font-weight: 600;">
+            🚀 Luyện tập hôm nay — Tiến bộ mỗi ngày!
+        </p>
+    </div>
+
     {% if misc_config.home_page_top %}
         {{ render_django(misc_config.home_page_top, request=request, user_count=user_count, problem_count=problem_count, submission_count=submission_count, language_count=language_count, perms=perms) }}
     {% endif %}
 {% endblock %}
+
 {% block meta %}
     {% if misc_config.meta_description %}
         <meta name="description" property="og:description" content="{{ misc_config.meta_description }}">

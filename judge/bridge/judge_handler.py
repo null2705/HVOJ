@@ -58,6 +58,7 @@ class JudgeHandler(ZlibPacketHandler):
             'ping-response': self.on_ping_response,
             'executors': self.on_executors,
             'handshake': self.on_handshake,
+            'supported-problems': self.on_supported_problems,
         }
         self._working = False
         self._no_response_job = None
@@ -155,13 +156,18 @@ class JudgeHandler(ZlibPacketHandler):
     def send(self, data):
         super().send(json.dumps(data, separators=(',', ':')))
 
+    def on_supported_problems(self, packet):
+        # Judge 4.x gửi danh sách bài qua gói riêng.
+        # Việc định tuyến chấm bài vẫn dựa trên storage và executor.
+        return
+
     def on_handshake(self, packet):
         if 'id' not in packet or 'key' not in packet:
             logger.warning('Malformed handshake: %s', self.client_address)
             self.close()
             return
 
-        if packet.get('version', 1) == 1:
+        if packet.get('version') == 1:
             logger.warning('Rejected old judge protocol (version 1): %s', packet.get('id'))
             self.close()
             return
@@ -172,6 +178,8 @@ class JudgeHandler(ZlibPacketHandler):
 
         self.timeout = 60
         self.storages = {s['id'] for s in packet.get('storages', [])}
+        if not self.storages:
+            self.storages = {'local'}
         self.executors = packet['executors']
         self.name = packet['id']
 

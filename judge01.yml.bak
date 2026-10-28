@@ -1,0 +1,11 @@
+id: judge01
+key: 2b86412ac17ff22af8a439f579fa879705556b13f841fe250dae12852c5180f9
+problem_storage_globs:
+- /home/huy/vnoj-site/problem_data/*
+runtime:
+  as_x64: /usr/bin/x86_64-linux-gnu-as
+  as_x86: /usr/bin/as
+  ld_x64: /usr/bin/x86_64-linux-gnu-ld
+  ld_x86: /usr/bin/ld
+problem_storage_root:
+- /home/huy/vnoj-site/problem_data

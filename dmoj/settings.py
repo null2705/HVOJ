@@ -31,9 +31,9 @@ ALLOWED_HOSTS = []
 
 CSRF_FAILURE_VIEW = 'judge.views.widgets.csrf_failure'
 
-SITE_ID = 1
-SITE_NAME = 'DMOJ'
-SITE_LONG_NAME = 'DMOJ: Modern Online Judge'
+SITE_ID = 3
+SITE_NAME = 'HVOJ'
+SITE_LONG_NAME = 'HVOJ: Hùng Vương Online Judge Online Judge'
 SITE_ADMIN_EMAIL = ''
 
 DMOJ_REQUIRE_STAFF_2FA = True

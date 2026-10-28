@@ -1,0 +1,792 @@
+==================================================
+ HVOJ - KIEM TRA TONG THE USER VA ADMIN
+Mon Oct 26 06:03:35 -05 2026
+==================================================
+
+===== 1. PHIEN BAN PYTHON VA DJANGO =====
+Python 3.10.12
+4.2.30
+
+===== 2. KIEM TRA DJANGO =====
+System check identified no issues (102 silenced).
+Django check exit code: 0
+
+===== 3. KIEM TRA MIGRATIONS =====
+Migration check exit code: 0
+
+===== 4. KIEM TRA CAU HINH DEPLOY =====
+System check identified some issues:
+
+WARNINGS:
+?: (oauth2_provider.W001) RFC 9700 (OAuth 2.0 Security BCP): the OAuth 2.0 implicit grant is enabled (RFC 9700 §2.1.2).
+	HINT: Set OAUTH2_PROVIDER['COMPLIANT_BCP_RFC9700_IMPLICIT_GRANT'] = True to adopt the compliant behavior. This default is scheduled to change in 4.0.
+?: (oauth2_provider.W002) RFC 9700 (OAuth 2.0 Security BCP): the resource owner password credentials grant is enabled (RFC 9700 §2.4).
+	HINT: Set OAUTH2_PROVIDER['COMPLIANT_BCP_RFC9700_PASSWORD_GRANT'] = True to adopt the compliant behavior. This default is scheduled to change in 4.0.
+?: (oauth2_provider.W003) RFC 9700 (OAuth 2.0 Security BCP): the PKCE "plain" code_challenge_method is accepted (RFC 9700 §2.1.1).
+	HINT: Set OAUTH2_PROVIDER['COMPLIANT_BCP_RFC9700_PKCE_METHOD'] = True to adopt the compliant behavior. This default is scheduled to change in 4.0.
+?: (oauth2_provider.W004) RFC 9700 (OAuth 2.0 Security BCP): access tokens are accepted in the URI query string (RFC 9700 §4.3.2).
+	HINT: Set OAUTH2_PROVIDER['COMPLIANT_BCP_RFC9700_ACCESS_TOKEN_TRANSPORT'] = True to adopt the compliant behavior. This default is scheduled to change in 4.0.
+?: (oauth2_provider.W005) RFC 9700 (OAuth 2.0 Security BCP): the RFC 9207 `iss` authorization-response parameter is omitted (RFC 9700 §4.4).
+	HINT: Set OAUTH2_PROVIDER['COMPLIANT_BCP_RFC9700_AUTHZ_RESPONSE_ISS'] = True to adopt the compliant behavior. This default is scheduled to change in 4.0.
+?: (oauth2_provider.W006) RFC 9700 (OAuth 2.0 Security BCP): access and refresh tokens are stored in plaintext (RFC 9700 §4).
+	HINT: Set OAUTH2_PROVIDER['COMPLIANT_BCP_RFC9700_TOKEN_STORAGE'] = True to adopt the compliant behavior. This default is scheduled to change in 4.0.
+?: (oauth2_provider.W007) RFC 9700 (OAuth 2.0 Security BCP): refresh token replay detection is disabled (§4.14.2).
+	HINT: Set OAUTH2_PROVIDER['REFRESH_TOKEN_REUSE_PROTECTION'] = True to revoke the whole token family when a refresh token is replayed. This is a warning because OAUTH2_PROVIDER['COMPLIANT_BCP_RFC9700_REFRESH_TOKEN'] is False; the default is scheduled to change to True in 4.0, making this configuration an error.
+?: (oauth2_provider.W008) RFC 9700 (OAuth 2.0 Security BCP): plaintext `http` redirect URIs are allowed (§2.1).
+	HINT: Remove 'http' from OAUTH2_PROVIDER['ALLOWED_REDIRECT_URI_SCHEMES'] to require https redirect URIs. Note this also disallows native-app loopback (http://127.0.0.1) callbacks per RFC 8252, so keep 'http' if you must support them. This is a warning because OAUTH2_PROVIDER['COMPLIANT_BCP_RFC9700_REDIRECT_URI_SCHEME'] is False; the default is scheduled to change to True in 4.0, making this configuration an error.
+?: (oauth2_provider.W010) RFC 9700 (OAuth 2.0 Security BCP): PKCE is not required (§2.1.1).
+	HINT: Set OAUTH2_PROVIDER['PKCE_REQUIRED'] = True (or a per-client callable). This is a warning because OAUTH2_PROVIDER['COMPLIANT_BCP_RFC9700_PKCE_REQUIRED'] is False; the default is scheduled to change to True in 4.0, making this configuration an error.
+?: (security.W001) You do not have 'django.middleware.security.SecurityMiddleware' in your MIDDLEWARE so the SECURE_HSTS_SECONDS, SECURE_CONTENT_TYPE_NOSNIFF, SECURE_REFERRER_POLICY, SECURE_CROSS_ORIGIN_OPENER_POLICY, and SECURE_SSL_REDIRECT settings will have no effect.
+?: (security.W009) Your SECRET_KEY has less than 50 characters, less than 5 unique characters, or it's prefixed with 'django-insecure-' indicating that it was generated automatically by Django. Please generate a long and random value, otherwise many of Django's security-critical features will be vulnerable to attack.
+?: (security.W012) SESSION_COOKIE_SECURE is not set to True. Using a secure-only session cookie makes it more difficult for network traffic sniffers to hijack user sessions.
+?: (security.W016) You have 'django.middleware.csrf.CsrfViewMiddleware' in your MIDDLEWARE, but you have not set CSRF_COOKIE_SECURE to True. Using a secure-only CSRF cookie makes it more difficult for network traffic sniffers to steal the CSRF token.
+?: (security.W018) You should not have DEBUG set to True in deployment.
+
+System check identified 14 issues (102 silenced).
+Deploy check exit code: 0
+
+===== 5. KIEM TRA CAC URL USER VA ADMIN =====
+ -> home
+500/ -> None
+admin/ -> index
+admin/login/ -> login
+admin/logout/ -> logout
+admin/password_change/ -> password_change
+admin/password_change/done/ -> password_change_done
+admin/autocomplete/ -> autocomplete
+admin/jsi18n/ -> jsi18n
+admin/r/<int:content_type_id>/<path:object_id>/ -> view_on_site
+admin/auth/group/ -> auth_group_changelist
+admin/auth/group/add/ -> auth_group_add
+admin/auth/group/<path:object_id>/history/ -> auth_group_history
+admin/auth/group/<path:object_id>/delete/ -> auth_group_delete
+admin/auth/group/<path:object_id>/change/ -> auth_group_change
+admin/auth/group/<path:object_id>/ -> None
+admin/judge/blogpost/^recover/$ -> judge_blogpost_recoverlist
+admin/judge/blogpost/^recover/(\d+)/$ -> judge_blogpost_recover
+admin/judge/blogpost/^([^/]+)/history/(\d+)/$ -> judge_blogpost_revision
+admin/judge/blogpost/ -> judge_blogpost_changelist
+admin/judge/blogpost/add/ -> judge_blogpost_add
+admin/judge/blogpost/<path:object_id>/history/ -> judge_blogpost_history
+admin/judge/blogpost/<path:object_id>/delete/ -> judge_blogpost_delete
+admin/judge/blogpost/<path:object_id>/change/ -> judge_blogpost_change
+admin/judge/blogpost/<path:object_id>/ -> None
+admin/judge/blogposttag/ -> judge_blogposttag_changelist
+admin/judge/blogposttag/add/ -> judge_blogposttag_add
+admin/judge/blogposttag/<path:object_id>/history/ -> judge_blogposttag_history
+admin/judge/blogposttag/<path:object_id>/delete/ -> judge_blogposttag_delete
+admin/judge/blogposttag/<path:object_id>/change/ -> judge_blogposttag_change
+admin/judge/blogposttag/<path:object_id>/ -> None
+admin/judge/comment/^recover/$ -> judge_comment_recoverlist
+admin/judge/comment/^recover/(\d+)/$ -> judge_comment_recover
+admin/judge/comment/^([^/]+)/history/(\d+)/$ -> judge_comment_revision
+admin/judge/comment/ -> judge_comment_changelist
+admin/judge/comment/add/ -> judge_comment_add
+admin/judge/comment/<path:object_id>/history/ -> judge_comment_history
+admin/judge/comment/<path:object_id>/delete/ -> judge_comment_delete
+admin/judge/comment/<path:object_id>/change/ -> judge_comment_change
+admin/judge/comment/<path:object_id>/ -> None
+admin/judge/commentlock/ -> judge_commentlock_changelist
+admin/judge/commentlock/add/ -> judge_commentlock_add
+admin/judge/commentlock/<path:object_id>/history/ -> judge_commentlock_history
+admin/judge/commentlock/<path:object_id>/delete/ -> judge_commentlock_delete
+admin/judge/commentlock/<path:object_id>/change/ -> judge_commentlock_change
+admin/judge/commentlock/<path:object_id>/ -> None
+admin/judge/contest/rate/all/ -> judge_contest_rate_all
+admin/judge/contest/<int:id>/rate/ -> judge_contest_rate
+admin/judge/contest/<int:contest_id>/invalidate_replay/ -> judge_contest_invalidate_replay
+admin/judge/contest/<int:contest_id>/rejudge/<int:problem_id>/ -> judge_contest_rejudge
+admin/judge/contest/<int:contest_id>/rescore/<int:problem_id>/ -> judge_contest_rescore
+admin/judge/contest/<int:contest_id>/resend/<int:announcement_id>/ -> judge_contest_resend
+admin/judge/contest/^recover/$ -> judge_contest_recoverlist
+admin/judge/contest/^recover/(\d+)/$ -> judge_contest_recover
+admin/judge/contest/^([^/]+)/history/(\d+)/$ -> judge_contest_revision
+admin/judge/contest/ -> judge_contest_changelist
+admin/judge/contest/add/ -> judge_contest_add
+admin/judge/contest/<path:object_id>/history/ -> judge_contest_history
+admin/judge/contest/<path:object_id>/delete/ -> judge_contest_delete
+admin/judge/contest/<path:object_id>/change/ -> judge_contest_change
+admin/judge/contest/<path:object_id>/ -> None
+admin/judge/contestparticipation/ -> judge_contestparticipation_changelist
+admin/judge/contestparticipation/add/ -> judge_contestparticipation_add
+admin/judge/contestparticipation/<path:object_id>/history/ -> judge_contestparticipation_history
+admin/judge/contestparticipation/<path:object_id>/delete/ -> judge_contestparticipation_delete
+admin/judge/contestparticipation/<path:object_id>/change/ -> judge_contestparticipation_change
+admin/judge/contestparticipation/<path:object_id>/ -> None
+admin/judge/contesttag/ -> judge_contesttag_changelist
+admin/judge/contesttag/add/ -> judge_contesttag_add
+admin/judge/contesttag/<path:object_id>/history/ -> judge_contesttag_history
+admin/judge/contesttag/<path:object_id>/delete/ -> judge_contesttag_delete
+admin/judge/contesttag/<path:object_id>/change/ -> judge_contesttag_change
+admin/judge/contesttag/<path:object_id>/ -> None
+admin/flatpages/flatpage/^recover/$ -> flatpages_flatpage_recoverlist
+admin/flatpages/flatpage/^recover/(\d+)/$ -> flatpages_flatpage_recover
+admin/flatpages/flatpage/^([^/]+)/history/(\d+)/$ -> flatpages_flatpage_revision
+admin/flatpages/flatpage/ -> flatpages_flatpage_changelist
+admin/flatpages/flatpage/add/ -> flatpages_flatpage_add
+admin/flatpages/flatpage/<path:object_id>/history/ -> flatpages_flatpage_history
+admin/flatpages/flatpage/<path:object_id>/delete/ -> flatpages_flatpage_delete
+admin/flatpages/flatpage/<path:object_id>/change/ -> flatpages_flatpage_change
+admin/flatpages/flatpage/<path:object_id>/ -> None
+admin/judge/judge/<int:id>/disconnect/ -> judge_judge_disconnect
+admin/judge/judge/<int:id>/terminate/ -> judge_judge_terminate
+admin/judge/judge/<int:id>/disable/ -> judge_judge_disable
+admin/judge/judge/^recover/$ -> judge_judge_recoverlist
+admin/judge/judge/^recover/(\d+)/$ -> judge_judge_recover
+admin/judge/judge/^([^/]+)/history/(\d+)/$ -> judge_judge_revision
+admin/judge/judge/ -> judge_judge_changelist
+admin/judge/judge/add/ -> judge_judge_add
+admin/judge/judge/<path:object_id>/history/ -> judge_judge_history
+admin/judge/judge/<path:object_id>/delete/ -> judge_judge_delete
+admin/judge/judge/<path:object_id>/change/ -> judge_judge_change
+admin/judge/judge/<path:object_id>/ -> None
+admin/judge/language/^recover/$ -> judge_language_recoverlist
+admin/judge/language/^recover/(\d+)/$ -> judge_language_recover
+admin/judge/language/^([^/]+)/history/(\d+)/$ -> judge_language_revision
+admin/judge/language/ -> judge_language_changelist
+admin/judge/language/add/ -> judge_language_add
+admin/judge/language/<path:object_id>/history/ -> judge_language_history
+admin/judge/language/<path:object_id>/delete/ -> judge_language_delete
+admin/judge/language/<path:object_id>/change/ -> judge_language_change
+admin/judge/language/<path:object_id>/ -> None
+admin/judge/license/ -> judge_license_changelist
+admin/judge/license/add/ -> judge_license_add
+admin/judge/license/<path:object_id>/history/ -> judge_license_history
+admin/judge/license/<path:object_id>/delete/ -> judge_license_delete
+admin/judge/license/<path:object_id>/change/ -> judge_license_change
+admin/judge/license/<path:object_id>/ -> None
+admin/admin/logentry/ -> admin_logentry_changelist
+admin/admin/logentry/add/ -> admin_logentry_add
+admin/admin/logentry/<path:object_id>/history/ -> admin_logentry_history
+admin/admin/logentry/<path:object_id>/delete/ -> admin_logentry_delete
+admin/admin/logentry/<path:object_id>/change/ -> admin_logentry_change
+admin/admin/logentry/<path:object_id>/ -> None
+admin/judge/miscconfig/ -> judge_miscconfig_changelist
+admin/judge/miscconfig/add/ -> judge_miscconfig_add
+admin/judge/miscconfig/<path:object_id>/history/ -> judge_miscconfig_history
+admin/judge/miscconfig/<path:object_id>/delete/ -> judge_miscconfig_delete
+admin/judge/miscconfig/<path:object_id>/change/ -> judge_miscconfig_change
+admin/judge/miscconfig/<path:object_id>/ -> None
+admin/judge/badge/ -> judge_badge_changelist
+admin/judge/badge/add/ -> judge_badge_add
+admin/judge/badge/<path:object_id>/history/ -> judge_badge_history
+admin/judge/badge/<path:object_id>/delete/ -> judge_badge_delete
+admin/judge/badge/<path:object_id>/change/ -> judge_badge_change
+admin/judge/badge/<path:object_id>/ -> None
+admin/judge/navigationbar/ -> judge_navigationbar_changelist
+admin/judge/navigationbar/add/ -> judge_navigationbar_add
+admin/judge/navigationbar/<path:object_id>/history/ -> judge_navigationbar_history
+admin/judge/navigationbar/<path:object_id>/delete/ -> judge_navigationbar_delete
+admin/judge/navigationbar/<path:object_id>/change/ -> judge_navigationbar_change
+admin/judge/navigationbar/<path:object_id>/ -> None
+admin/judge/organization/^recover/$ -> judge_organization_recoverlist
+admin/judge/organization/^recover/(\d+)/$ -> judge_organization_recover
+admin/judge/organization/^([^/]+)/history/(\d+)/$ -> judge_organization_revision
+admin/judge/organization/ -> judge_organization_changelist
+admin/judge/organization/add/ -> judge_organization_add
+admin/judge/organization/<path:object_id>/history/ -> judge_organization_history
+admin/judge/organization/<path:object_id>/delete/ -> judge_organization_delete
+admin/judge/organization/<path:object_id>/change/ -> judge_organization_change
+admin/judge/organization/<path:object_id>/ -> None
+admin/judge/organizationproblemtag/ -> judge_organizationproblemtag_changelist
+admin/judge/organizationproblemtag/add/ -> judge_organizationproblemtag_add
+admin/judge/organizationproblemtag/<path:object_id>/history/ -> judge_organizationproblemtag_history
+admin/judge/organizationproblemtag/<path:object_id>/delete/ -> judge_organizationproblemtag_delete
+admin/judge/organizationproblemtag/<path:object_id>/change/ -> judge_organizationproblemtag_change
+admin/judge/organizationproblemtag/<path:object_id>/ -> None
+admin/judge/organizationrequest/ -> judge_organizationrequest_changelist
+admin/judge/organizationrequest/add/ -> judge_organizationrequest_add
+admin/judge/organizationrequest/<path:object_id>/history/ -> judge_organizationrequest_history
+admin/judge/organizationrequest/<path:object_id>/delete/ -> judge_organizationrequest_delete
+admin/judge/organizationrequest/<path:object_id>/change/ -> judge_organizationrequest_change
+admin/judge/organizationrequest/<path:object_id>/ -> None
+admin/judge/problem/^recover/$ -> judge_problem_recoverlist
+admin/judge/problem/^recover/(\d+)/$ -> judge_problem_recover
+admin/judge/problem/^([^/]+)/history/(\d+)/$ -> judge_problem_revision
+admin/judge/problem/ -> judge_problem_changelist
+admin/judge/problem/add/ -> judge_problem_add
+admin/judge/problem/<path:object_id>/history/ -> judge_problem_history
+admin/judge/problem/<path:object_id>/delete/ -> judge_problem_delete
+admin/judge/problem/<path:object_id>/change/ -> judge_problem_change
+admin/judge/problem/<path:object_id>/ -> None
+admin/judge/problemgroup/ -> judge_problemgroup_changelist
+admin/judge/problemgroup/add/ -> judge_problemgroup_add
+admin/judge/problemgroup/<path:object_id>/history/ -> judge_problemgroup_history
+admin/judge/problemgroup/<path:object_id>/delete/ -> judge_problemgroup_delete
+admin/judge/problemgroup/<path:object_id>/change/ -> judge_problemgroup_change
+admin/judge/problemgroup/<path:object_id>/ -> None
+admin/judge/problemtype/ -> judge_problemtype_changelist
+admin/judge/problemtype/add/ -> judge_problemtype_add
+admin/judge/problemtype/<path:object_id>/history/ -> judge_problemtype_history
+admin/judge/problemtype/<path:object_id>/delete/ -> judge_problemtype_delete
+admin/judge/problemtype/<path:object_id>/change/ -> judge_problemtype_change
+admin/judge/problemtype/<path:object_id>/ -> None
+admin/judge/profile/^recover/$ -> judge_profile_recoverlist
+admin/judge/profile/^recover/(\d+)/$ -> judge_profile_recover
+admin/judge/profile/^([^/]+)/history/(\d+)/$ -> judge_profile_revision
+admin/judge/profile/ -> judge_profile_changelist
+admin/judge/profile/add/ -> judge_profile_add
+admin/judge/profile/<path:object_id>/history/ -> judge_profile_history
+admin/judge/profile/<path:object_id>/delete/ -> judge_profile_delete
+admin/judge/profile/<path:object_id>/change/ -> judge_profile_change
+admin/judge/profile/<path:object_id>/ -> None
+admin/judge/submission/<int:id>/judge/ -> judge_submission_rejudge
+admin/judge/submission/^recover/$ -> judge_submission_recoverlist
+admin/judge/submission/^recover/(\d+)/$ -> judge_submission_recover
+admin/judge/submission/^([^/]+)/history/(\d+)/$ -> judge_submission_revision
+admin/judge/submission/ -> judge_submission_changelist
+admin/judge/submission/add/ -> judge_submission_add
+admin/judge/submission/<path:object_id>/history/ -> judge_submission_history
+admin/judge/submission/<path:object_id>/delete/ -> judge_submission_delete
+admin/judge/submission/<path:object_id>/change/ -> judge_submission_change
+admin/judge/submission/<path:object_id>/ -> None
+admin/judge/ticket/ -> judge_ticket_changelist
+admin/judge/ticket/add/ -> judge_ticket_add
+admin/judge/ticket/<path:object_id>/history/ -> judge_ticket_history
+admin/judge/ticket/<path:object_id>/delete/ -> judge_ticket_delete
+admin/judge/ticket/<path:object_id>/change/ -> judge_ticket_change
+admin/judge/ticket/<path:object_id>/ -> None
+admin/judge/tag/^recover/$ -> judge_tag_recoverlist
+admin/judge/tag/^recover/(\d+)/$ -> judge_tag_recover
+admin/judge/tag/^([^/]+)/history/(\d+)/$ -> judge_tag_revision
+admin/judge/tag/ -> judge_tag_changelist
+admin/judge/tag/add/ -> judge_tag_add
+admin/judge/tag/<path:object_id>/history/ -> judge_tag_history
+admin/judge/tag/<path:object_id>/delete/ -> judge_tag_delete
+admin/judge/tag/<path:object_id>/change/ -> judge_tag_change
+admin/judge/tag/<path:object_id>/ -> None
+admin/judge/taggroup/^recover/$ -> judge_taggroup_recoverlist
+admin/judge/taggroup/^recover/(\d+)/$ -> judge_taggroup_recover
+admin/judge/taggroup/^([^/]+)/history/(\d+)/$ -> judge_taggroup_revision
+admin/judge/taggroup/ -> judge_taggroup_changelist
+admin/judge/taggroup/add/ -> judge_taggroup_add
+admin/judge/taggroup/<path:object_id>/history/ -> judge_taggroup_history
+admin/judge/taggroup/<path:object_id>/delete/ -> judge_taggroup_delete
+admin/judge/taggroup/<path:object_id>/change/ -> judge_taggroup_change
+admin/judge/taggroup/<path:object_id>/ -> None
+admin/judge/tagproblem/^recover/$ -> judge_tagproblem_recoverlist
+admin/judge/tagproblem/^recover/(\d+)/$ -> judge_tagproblem_recover
+admin/judge/tagproblem/^([^/]+)/history/(\d+)/$ -> judge_tagproblem_revision
+admin/judge/tagproblem/ -> judge_tagproblem_changelist
+admin/judge/tagproblem/add/ -> judge_tagproblem_add
+admin/judge/tagproblem/<path:object_id>/history/ -> judge_tagproblem_history
+admin/judge/tagproblem/<path:object_id>/delete/ -> judge_tagproblem_delete
+admin/judge/tagproblem/<path:object_id>/change/ -> judge_tagproblem_change
+admin/judge/tagproblem/<path:object_id>/ -> None
+admin/auth/user/<id>/password/ -> auth_user_password_change
+admin/auth/user/ -> auth_user_changelist
+admin/auth/user/add/ -> auth_user_add
+admin/auth/user/<path:object_id>/history/ -> auth_user_history
+admin/auth/user/<path:object_id>/delete/ -> auth_user_delete
+admin/auth/user/<path:object_id>/change/ -> auth_user_change
+admin/auth/user/<path:object_id>/ -> None
+admin/redirects/redirect/ -> redirects_redirect_changelist
+admin/redirects/redirect/add/ -> redirects_redirect_add
+admin/redirects/redirect/<path:object_id>/history/ -> redirects_redirect_history
+admin/redirects/redirect/<path:object_id>/delete/ -> redirects_redirect_delete
+admin/redirects/redirect/<path:object_id>/change/ -> redirects_redirect_change
+admin/redirects/redirect/<path:object_id>/ -> None
+admin/sites/site/ -> sites_site_changelist
+admin/sites/site/add/ -> sites_site_add
+admin/sites/site/<path:object_id>/history/ -> sites_site_history
+admin/sites/site/<path:object_id>/delete/ -> sites_site_delete
+admin/sites/site/<path:object_id>/change/ -> sites_site_change
+admin/sites/site/<path:object_id>/ -> None
+admin/registration/registrationprofile/ -> registration_registrationprofile_changelist
+admin/registration/registrationprofile/add/ -> registration_registrationprofile_add
+admin/registration/registrationprofile/<path:object_id>/history/ -> registration_registrationprofile_history
+admin/registration/registrationprofile/<path:object_id>/delete/ -> registration_registrationprofile_delete
+admin/registration/registrationprofile/<path:object_id>/change/ -> registration_registrationprofile_change
+admin/registration/registrationprofile/<path:object_id>/ -> None
+admin/social_django/usersocialauth/ -> social_django_usersocialauth_changelist
+admin/social_django/usersocialauth/add/ -> social_django_usersocialauth_add
+admin/social_django/usersocialauth/<path:object_id>/history/ -> social_django_usersocialauth_history
+admin/social_django/usersocialauth/<path:object_id>/delete/ -> social_django_usersocialauth_delete
+admin/social_django/usersocialauth/<path:object_id>/change/ -> social_django_usersocialauth_change
+admin/social_django/usersocialauth/<path:object_id>/ -> None
+admin/social_django/nonce/ -> social_django_nonce_changelist
+admin/social_django/nonce/add/ -> social_django_nonce_add
+admin/social_django/nonce/<path:object_id>/history/ -> social_django_nonce_history
+admin/social_django/nonce/<path:object_id>/delete/ -> social_django_nonce_delete
+admin/social_django/nonce/<path:object_id>/change/ -> social_django_nonce_change
+admin/social_django/nonce/<path:object_id>/ -> None
+admin/social_django/association/ -> social_django_association_changelist
+admin/social_django/association/add/ -> social_django_association_add
+admin/social_django/association/<path:object_id>/history/ -> social_django_association_history
+admin/social_django/association/<path:object_id>/delete/ -> social_django_association_delete
+admin/social_django/association/<path:object_id>/change/ -> social_django_association_change
+admin/social_django/association/<path:object_id>/ -> None
+admin/impersonate/impersonationlog/ -> impersonate_impersonationlog_changelist
+admin/impersonate/impersonationlog/add/ -> impersonate_impersonationlog_add
+admin/impersonate/impersonationlog/<path:object_id>/history/ -> impersonate_impersonationlog_history
+admin/impersonate/impersonationlog/<path:object_id>/delete/ -> impersonate_impersonationlog_delete
+admin/impersonate/impersonationlog/<path:object_id>/change/ -> impersonate_impersonationlog_change
+admin/impersonate/impersonationlog/<path:object_id>/ -> None
+admin/oauth2_provider/application/ -> oauth2_provider_application_changelist
+admin/oauth2_provider/application/add/ -> oauth2_provider_application_add
+admin/oauth2_provider/application/<path:object_id>/history/ -> oauth2_provider_application_history
+admin/oauth2_provider/application/<path:object_id>/delete/ -> oauth2_provider_application_delete
+admin/oauth2_provider/application/<path:object_id>/change/ -> oauth2_provider_application_change
+admin/oauth2_provider/application/<path:object_id>/ -> None
+admin/oauth2_provider/accesstoken/ -> oauth2_provider_accesstoken_changelist
+admin/oauth2_provider/accesstoken/add/ -> oauth2_provider_accesstoken_add
+admin/oauth2_provider/accesstoken/<path:object_id>/history/ -> oauth2_provider_accesstoken_history
+admin/oauth2_provider/accesstoken/<path:object_id>/delete/ -> oauth2_provider_accesstoken_delete
+admin/oauth2_provider/accesstoken/<path:object_id>/change/ -> oauth2_provider_accesstoken_change
+admin/oauth2_provider/accesstoken/<path:object_id>/ -> None
+admin/oauth2_provider/grant/ -> oauth2_provider_grant_changelist
+admin/oauth2_provider/grant/add/ -> oauth2_provider_grant_add
+admin/oauth2_provider/grant/<path:object_id>/history/ -> oauth2_provider_grant_history
+admin/oauth2_provider/grant/<path:object_id>/delete/ -> oauth2_provider_grant_delete
+admin/oauth2_provider/grant/<path:object_id>/change/ -> oauth2_provider_grant_change
+admin/oauth2_provider/grant/<path:object_id>/ -> None
+admin/oauth2_provider/idtoken/ -> oauth2_provider_idtoken_changelist
+admin/oauth2_provider/idtoken/add/ -> oauth2_provider_idtoken_add
+admin/oauth2_provider/idtoken/<path:object_id>/history/ -> oauth2_provider_idtoken_history
+admin/oauth2_provider/idtoken/<path:object_id>/delete/ -> oauth2_provider_idtoken_delete
+admin/oauth2_provider/idtoken/<path:object_id>/change/ -> oauth2_provider_idtoken_change
+admin/oauth2_provider/idtoken/<path:object_id>/ -> None
+admin/oauth2_provider/refreshtoken/ -> oauth2_provider_refreshtoken_changelist
+admin/oauth2_provider/refreshtoken/add/ -> oauth2_provider_refreshtoken_add
+admin/oauth2_provider/refreshtoken/<path:object_id>/history/ -> oauth2_provider_refreshtoken_history
+admin/oauth2_provider/refreshtoken/<path:object_id>/delete/ -> oauth2_provider_refreshtoken_delete
+admin/oauth2_provider/refreshtoken/<path:object_id>/change/ -> oauth2_provider_refreshtoken_change
+admin/oauth2_provider/refreshtoken/<path:object_id>/ -> None
+admin/^(?P<app_label>auth|judge|flatpages|admin|redirects|sites|registration|social_django|impersonate|oauth2_provider)/$ -> app_list
+admin/(?P<url>.*)$ -> None
+i18n/setlang/ -> set_language
+accounts/activate/complete/ -> registration_activation_complete
+accounts/activate/<str:activation_key>/ -> registration_activate
+accounts/register/ -> registration_register
+accounts/register/complete/ -> registration_complete
+accounts/register/closed/ -> registration_disallowed
+accounts/login/ -> auth_login
+accounts/logout/ -> auth_logout
+accounts/password/change/ -> password_change
+accounts/password/change/done/ -> password_change_done
+accounts/password/reset/ -> password_reset
+accounts/^password/reset/confirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$ -> password_reset_confirm
+accounts/password/reset/complete/ -> password_reset_complete
+accounts/password/reset/done/ -> password_reset_done
+accounts/social/error/ -> social_auth_error
+accounts/2fa/ -> login_2fa
+accounts/2fa/enable/ -> enable_2fa
+accounts/2fa/refresh/ -> refresh_2fa
+accounts/2fa/disable/ -> disable_2fa
+accounts/2fa/webauthn/attest/ -> webauthn_attest
+accounts/2fa/webauthn/assert/ -> webauthn_assert
+accounts/2fa/webauthn/delete/<int:pk> -> webauthn_delete
+accounts/2fa/scratchcode/generate/ -> generate_scratch_codes
+accounts/api/token/generate/ -> generate_api_token
+accounts/api/token/remove/ -> remove_api_token
+login/<str:backend>/ -> begin
+complete/<str:backend>/ -> complete
+disconnect/<str:backend>/ -> disconnect
+disconnect/<str:backend>/<int:association_id>/ -> disconnect_individual
+o/.well-known/oauth-authorization-server -> oauth-server-metadata
+o/.well-known/oauth-authorization-server/<path:issuer_path> -> oauth-server-metadata-issuer
+o/.well-known/oauth-protected-resource -> oauth-resource-metadata
+o/.well-known/oauth-protected-resource/<path:resource_path> -> oauth-resource-metadata-path
+o/authorize/ -> authorize
+o/token/ -> token
+o/revoke_token/ -> revoke-token
+o/introspect/ -> introspect
+o/device-authorization/ -> device-authorization
+o/device/ -> device
+o/device-confirm/<slug:client_id>/<slug:user_code> -> device-confirm
+o/device-grant-status/<slug:client_id>/<slug:user_code> -> device-grant-status
+o/applications/ -> list
+o/applications/register/ -> register
+o/applications/<slug:pk>/ -> detail
+o/applications/<slug:pk>/delete/ -> delete
+o/applications/<slug:pk>/update/ -> update
+o/authorized_tokens/ -> authorized-token-list
+o/authorized_tokens/<slug:pk>/delete/ -> authorized-token-delete
+o/^\.well-known/openid-configuration/?$ -> oidc-connect-discovery-info
+o/.well-known/jwks.json -> jwks-info
+o/userinfo/ -> user-info
+o/logout/ -> rp-initiated-logout
+o/register/ -> dcr-register
+o/register/<str:client_id>/ -> dcr-register-management
+shorteners/ -> urlshortener_list
+shorteners/create/ -> urlshortener_create
+shorteners/<str:short_code>/ -> urlshortener_detail
+shorteners/<str:short_code>/edit/ -> urlshortener_edit
+shorteners/<str:short_code>/delete/ -> urlshortener_delete
+problems/ -> problem_list
+problems/random/ -> problem_random
+problems/create -> problem_create
+problems/import-polygon -> problem_import_polygon
+problem/<str:problem> -> problem_detail
+problem/<str:problem>/comments -> problem_comments
+problem/<str:problem>/edit -> problem_edit
+problem/<str:problem>/edit-type-group -> problem_edit_type_group
+problem/<str:problem>/editorial -> problem_editorial
+problem/<str:problem>/editorial/comments -> problem_editorial_comments
+problem/<str:problem>/raw -> problem_raw
+problem/<str:problem>/pdf -> problem_pdf
+problem/<str:problem>/pdf/<slug:language> -> problem_pdf
+problem/<str:problem>/clone -> problem_clone
+problem/<str:problem>/delete -> problem_delete
+problem/<str:problem>/submit -> problem_submit
+problem/<str:problem>/resubmit/<int:submission> -> problem_submit
+problem/<str:problem>/update-polygon -> problem_update_polygon
+problem/<str:problem>/rank/ -> ranked_submissions
+problem/<str:problem>/rank/<int:page> -> ranked_submissions
+problem/<str:problem>/submissions/ -> chronological_submissions
+problem/<str:problem>/submissions/<int:page> -> chronological_submissions
+problem/<str:problem>/submissions/<str:user>/ -> user_submissions
+problem/<str:problem>/submissions/<str:user>/<int:page> -> user_submissions
+problem/<str:problem>/ -> None
+problem/<str:problem>/test_data -> problem_data
+problem/<str:problem>/test_data/init -> problem_data_init
+problem/<str:problem>/test_data/diff -> problem_submission_diff
+problem/<str:problem>/data/<path:path> -> problem_data_file
+problem/<str:problem>/download/package -> problem_download_full_package
+problem/<str:problem>/download/archive -> problem_download_archived_data
+problem/<str:problem>/tickets/ -> problem_ticket_list
+problem/<str:problem>/tickets/new -> new_problem_ticket
+problem/<str:problem>/manage/submission -> problem_manage_submissions
+problem/<str:problem>/manage/submission/rejudge -> problem_submissions_rejudge
+problem/<str:problem>/manage/submission/rejudge/preview -> problem_submissions_rejudge_preview
+problem/<str:problem>/manage/submission/rejudge/success/<slug:task_id> -> problem_submissions_rejudge_success
+problem/<str:problem>/manage/submission/rescore/all -> problem_submissions_rescore_all
+problem/<str:problem>/manage/submission/rescore/success/<slug:task_id> -> problem_submissions_rescore_success
+tags/ -> tagproblem_list
+tags/create -> tagproblem_create
+tags/random/ -> tagproblem_random
+tags/find -> tagproblem_find
+tag/<str:tagproblem> -> tagproblem_detail
+tag/<str:tagproblem>/comments -> tagproblem_comments
+tag/<str:tagproblem>/assign -> tagproblem_assign
+tag/<str:tagproblem>/ -> None
+submissions/ -> all_submissions
+submissions/<int:page> -> all_submissions
+submissions/diff -> diff_submissions
+submissions/user/<str:user>/ -> all_user_submissions
+submissions/user/<str:user>/<int:page> -> all_user_submissions
+src/<int:submission> -> submission_source
+src/<int:submission>/raw -> submission_source_raw
+src/<int:submission>/download -> submission_source_download
+submission/<int:submission> -> submission_status
+submission/<int:submission>/abort -> submission_abort
+users/ -> user_list
+users/<int:page> -> None
+users/find -> user_ranking_redirect
+user -> user_page
+edit/profile/ -> user_edit_profile
+set-theme/ -> set_theme
+data/prepare/ -> user_prepare_data
+data/download/ -> user_download_data
+user/<str:user> -> user_page
+user/<str:user>/ban -> user_ban
+user/<str:user>/unban -> user_unban
+user/<str:user>/blog/ -> user_blog
+user/<str:user>/blog/<int:page> -> user_blog
+user/<str:user>/comment/ -> user_comment
+user/<str:user>/comment/<int:page> -> user_comment
+user/<str:user>/solved/ -> user_problems
+user/<str:user>/solved/ajax -> user_pp_ajax
+user/<str:user>/submissions/ -> all_user_submissions_old
+user/<str:user>/submissions/<int:page> -> all_user_submissions_old
+user/<str:user>/submissions/ -> None
+user/<str:user>/ -> None
+comments/upvote -> comment_upvote
+comments/downvote -> comment_downvote
+comments/hide -> comment_hide
+comments/<int:id>/edit -> comment_edit
+comments/<int:id>/history/ajax -> comment_revision_ajax
+comments/<int:id>/edit/ajax -> comment_edit_ajax
+comments/<int:id>/votes/ajax -> comment_votes_ajax
+comments/<int:id>/render -> comment_content
+contests/ -> contest_list
+contests/<int:page> -> contest_list
+contests.ics -> contest_ical
+contests/<int:year>/<int:month>/ -> contest_calendar
+contests/new -> contest_new
+contests/tag/<int:pk> -> contest_tag
+contests/tag/<int:pk>/ajax -> contest_tag_ajax
+contest/<str:contest> -> contest_view
+contest/<str:contest>/comments -> contest_comments
+contest/<str:contest>/all -> contest_all_problems
+contest/<str:contest>/edit -> contest_edit
+contest/<str:contest>/delete -> contest_delete
+contest/<str:contest>/moss -> contest_moss
+contest/<str:contest>/moss/delete -> contest_moss_delete
+contest/<str:contest>/announce -> contest_announce
+contest/<str:contest>/clone -> contest_clone
+contest/<str:contest>/ranking/ -> contest_ranking
+contest/<str:contest>/replay/<int:version>/ -> contest_replay_data
+contest/<str:contest>/public_ranking/ -> contest_public_ranking
+contest/<str:contest>/official_ranking/ -> contest_official_ranking
+contest/<str:contest>/register -> contest_register
+contest/<str:contest>/join -> contest_join
+contest/<str:contest>/leave -> contest_leave
+contest/<str:contest>/stats -> contest_stats
+contest/<str:contest>/data/prepare/ -> contest_prepare_data
+contest/<str:contest>/data/download/ -> contest_download_data
+contest/<str:contest>/make_problems_public -> contest_problems_make_public
+contest/<str:contest>/set_problems_source -> contest_problems_set_source
+contest/<str:contest>/rank/<str:problem>/ -> contest_ranked_submissions
+contest/<str:contest>/rank/<str:problem>/<int:page> -> contest_ranked_submissions
+contest/<str:contest>/submissions/ -> contest_all_submissions
+contest/<str:contest>/submissions/<int:page> -> contest_all_submissions
+contest/<str:contest>/submissions/<str:user>/ -> contest_all_user_submissions
+contest/<str:contest>/submissions/<str:user>/<int:page> -> contest_all_user_submissions
+contest/<str:contest>/submissions/<str:user>/<str:problem>/ -> contest_user_submissions
+contest/<str:contest>/submissions/<str:user>/<str:problem>/<int:page> -> contest_user_submissions
+contest/<str:contest>/participation/disqualify -> contest_participation_disqualify
+contest/<str:contest>/balloons -> contest_balloons
+contest/<str:contest>/ -> None
+contributors/ -> contributors_list
+contributors/<int:page> -> None
+contributors/find -> user_contributor_redirect
+organizations/ -> organization_list
+organizations/create -> organization_create
+organization/<int:pk>-<path:suffix> -> None
+organization/<slug:slug> -> organization_home
+organization/<slug:slug>/<int:page> -> organization_home
+organization/<slug:slug>/users/ -> organization_users
+organization/<slug:slug>/users/find -> org_user_ranking_redirect
+organization/<slug:slug>/user/<str:user>/solved -> organization_user_solved
+organization/<slug:slug>/join -> join_organization
+organization/<slug:slug>/leave -> leave_organization
+organization/<slug:slug>/edit -> edit_organization
+organization/<slug:slug>/quota/add -> organization_quota_add
+organization/<slug:slug>/quota/<int:quota_id>/delete -> organization_quota_delete
+organization/<slug:slug>/tags/ -> organization_tag_list
+organization/<slug:slug>/tags/add -> organization_tag_add
+organization/<slug:slug>/tags/<int:pk>/edit -> organization_tag_edit
+organization/<slug:slug>/tags/<int:pk>/delete -> organization_tag_delete
+organization/<slug:slug>/kick -> organization_user_kick
+organization/<slug:slug>/usage -> organization_monthly_usage
+organization/<slug:slug>/usage/archived -> organization_archived_problems
+organization/<slug:slug>/usage/archived/<str:problem>/restore -> organization_archived_problem_restore
+organization/<slug:slug>/problems/ -> problem_list_organization
+organization/<slug:slug>/problems/random/ -> problem_random_organization
+organization/<slug:slug>/problems/bulk-delete -> organization_problems_bulk_delete
+organization/<slug:slug>/contests/ -> contest_list_organization
+organization/<slug:slug>/submissions/ -> submission_list_organization
+organization/<slug:slug>/submissions/<int:page> -> submission_list_organization
+organization/<slug:slug>/problem-create -> problem_create_organization
+organization/<slug:slug>/contest-create -> contest_create_organization
+organization/<slug:slug>/request -> request_organization
+organization/<slug:slug>/request/<int:rpk> -> request_organization_detail
+organization/<slug:slug>/requests/pending -> organization_requests_pending
+organization/<slug:slug>/requests/log -> organization_requests_log
+organization/<slug:slug>/requests/approved -> organization_requests_approved
+organization/<slug:slug>/requests/rejected -> organization_requests_rejected
+organization/<slug:slug>/post/new -> blog_post_create_organization
+organization/<slug:slug>/ -> None
+runtimes/ -> runtime_list
+runtimes/matrix/ -> version_matrix
+status/ -> status_all
+status/oj/ -> status_oj
+blogs/ -> blog_modern_list
+blogs/<int:page> -> blog_modern_list
+posts/ -> blog_post_list
+posts/<int:page> -> blog_post_list
+posts/new -> blog_post_new
+posts/upvote -> blog_upvote
+posts/downvote -> blog_downvote
+post/<int:id>-<slug:slug> -> blog_post
+post/<int:id>-<slug:slug>/modern -> blog_post_modern
+post/<int:id>-<slug:slug>/comments -> blog_post_comments
+post/<int:id>-<slug:slug>/edit -> blog_post_edit
+post/<int:id>-<slug:slug>/delete -> blog_post_delete
+post/<int:id>-<slug:slug>/ -> None
+license/<str:key> -> license
+mailgun/mail_activate/ -> mailgun_activate
+widgets/rejudge -> submission_rejudge
+widgets/single_submission -> submission_single_query
+widgets/submission_testcases -> submission_testcases_query
+widgets/status-table -> status_table
+widgets/template -> language_template_ajax
+widgets/select2/user_search -> user_search_select2_ajax
+widgets/select2/org_users/<slug:slug> -> org_user_search_select2_ajax
+widgets/select2/ticket_user -> ticket_user_select2_ajax
+widgets/select2/ticket_assignee -> ticket_assignee_select2_ajax
+widgets/preview/default -> default_preview
+widgets/preview/problem -> problem_preview
+widgets/preview/blog -> blog_preview
+widgets/preview/contest -> contest_preview
+widgets/preview/comment -> comment_preview
+widgets/preview/flatpage -> flatpage_preview
+widgets/preview/profile -> profile_preview
+widgets/preview/organization -> organization_preview
+widgets/preview/solution -> solution_preview
+widgets/preview/license -> license_preview
+widgets/preview/ticket -> ticket_preview
+widgets/martor/upload-image -> martor_image_uploader
+widgets/martor/search-user -> martor_search_user
+feed/problems/rss/ -> problem_rss
+feed/problems/atom/ -> problem_atom
+feed/comment/rss/ -> comment_rss
+feed/comment/atom/ -> comment_atom
+feed/blog/rss/ -> blog_rss
+feed/blog/atom/ -> blog_atom
+stats/data/all/ -> stats_data_all
+tickets/ -> ticket_list
+tickets/ajax -> ticket_ajax
+tickets/new -> new_issue_ticket
+notifications/ -> notification_list
+notifications/ajax -> notification_ajax
+notifications/mark_read -> notification_mark_read
+ticket/<int:pk> -> ticket
+ticket/<int:pk>/ajax -> ticket_message_ajax
+ticket/<int:pk>/open -> ticket_open
+ticket/<int:pk>/close -> ticket_close
+ticket/<int:pk>/good -> ticket_good
+ticket/<int:pk>/norm -> ticket_norm
+ticket/<int:pk>/notes -> ticket_notes
+sitemap.xml -> None
+judge-select2/profile/ -> profile_select2
+judge-select2/organization_profile/<int:pk>/ -> organization_profile_select2
+judge-select2/organization/ -> organization_select2
+judge-select2/problem/ -> problem_select2
+judge-select2/problem/public/ -> public_problem_select2
+judge-select2/problem/org/<int:org_pk>/ -> org_problem_select2
+judge-select2/contest/ -> contest_select2
+judge-select2/comment/ -> comment_select2
+judge-select2/tag/ -> tag_select2
+judge-select2/taggroup/ -> taggroup_select2
+tasks/status/<slug:task_id> -> task_status
+tasks/ajax_status -> task_status_ajax
+tasks/success -> None
+tasks/failure -> None
+tasks/progress -> None
+magazine/ -> magazine
+misc_config/ -> misc_config
+impersonate/stop/ -> impersonate-stop
+impersonate/list/ -> impersonate-list
+impersonate/search/ -> impersonate-search
+impersonate/<path:uid>/ -> impersonate-start
+^submission_file/(?P<path>.*)$ -> None
+^static-upload/(?P<path>.*)$ -> None
+
+===== 6. KIEM TRA HTTP WEBSITE =====
+--- /
+HTTP 200 | URL http://127.0.0.1:8000/
+--- /admin/
+HTTP 200 | URL http://127.0.0.1:8000/admin/login/?next=/admin/
+--- /problems/
+HTTP 200 | URL http://127.0.0.1:8000/problems/
+--- /submissions/
+HTTP 200 | URL http://127.0.0.1:8000/submissions/
+--- /accounts/login/
+HTTP 200 | URL http://127.0.0.1:8000/accounts/login/
+
+===== 7. KIEM TRA CAC TIEN TRINH =====
+1179 /home/huy/hvoj/.venv/bin/python /home/huy/hvoj/manage.py runserver 0.0.0.0:8000 --noreload
+1188 /home/huy/hvoj/.venv/bin/python /home/huy/hvoj/manage.py runbridged
+
+===== 8. KIEM TRA CAC TEP GIAO DIEN =====
+4812
+
+===== 9. LOI GAN DAY TRONG LOG =====
+--- logs/web.log
+1327:ERROR 2026-10-25 07:28:32,893 judgeapi Failed to send request to judge
+1328:Traceback (most recent call last):
+1337:ConnectionRefusedError: [Errno 111] Connection refused
+4256:ERROR 2026-10-26 04:05:21,356 judgeapi Failed to send request to judge
+4257:Traceback (most recent call last):
+4266:ConnectionRefusedError: [Errno 111] Connection refused
+4366:ERROR 2026-10-26 04:07:18,029 judgeapi Failed to send request to judge
+4367:Traceback (most recent call last):
+4376:ConnectionRefusedError: [Errno 111] Connection refused
+4403:ERROR 2026-10-26 04:07:24,064 judgeapi Failed to send request to judge
+4404:Traceback (most recent call last):
+4413:ConnectionRefusedError: [Errno 111] Connection refused
+4419:ERROR 2026-10-26 04:07:31,223 judgeapi Failed to send request to judge
+4420:Traceback (most recent call last):
+4429:ConnectionRefusedError: [Errno 111] Connection refused
+4465:ERROR 2026-10-26 04:07:45,271 judgeapi Failed to send request to judge
+4466:Traceback (most recent call last):
+4475:ConnectionRefusedError: [Errno 111] Connection refused
+4499:ERROR 2026-10-26 04:13:54,928 judgeapi Failed to send request to judge
+4500:Traceback (most recent call last):
+4509:ConnectionRefusedError: [Errno 111] Connection refused
+--- logs/bridge.log
+965:  File "/home/huy/hvoj/judge/bridge/judge_handler.py", line 490, in on_internal_error
+966:    raise ValueError('\n\n' + packet['message'])
+967:ValueError: 
+969:Traceback (most recent call last):
+978:KeyError: 'hvtich'
+1021:ERROR 2026-10-26 10:27:29,202 judge_handler Judge judge01 failed while handling submission 32
+1022:Traceback (most recent call last):
+1023:  File "/home/huy/hvoj/judge/bridge/judge_handler.py", line 490, in on_internal_error
+1024:    raise ValueError('\n\n' + packet['message'])
+1025:ValueError: 
+1027:Traceback (most recent call last):
+1035:KeyError: 'hvthuong'
+1041:ERROR 2026-10-26 10:27:47,062 judge_handler Judge judge01 failed while handling submission 33
+1042:Traceback (most recent call last):
+1043:  File "/home/huy/hvoj/judge/bridge/judge_handler.py", line 490, in on_internal_error
+1044:    raise ValueError('\n\n' + packet['message'])
+1045:ValueError: 
+1047:Traceback (most recent call last):
+1055:KeyError: 'hvthuong'
+1069:ERROR 2026-10-26 10:28:02,764 judge_handler Judge judge01 failed while handling submission 32
+1070:Traceback (most recent call last):
+1071:  File "/home/huy/hvoj/judge/bridge/judge_handler.py", line 490, in on_internal_error
+1072:    raise ValueError('\n\n' + packet['message'])
+1073:ValueError: 
+1075:Traceback (most recent call last):
+1083:KeyError: 'hvthuong'
+1093:ERROR 2026-10-26 10:28:03,887 judge_handler Judge judge01 failed while handling submission 31
+1094:Traceback (most recent call last):
+1095:  File "/home/huy/hvoj/judge/bridge/judge_handler.py", line 490, in on_internal_error
+1096:    raise ValueError('\n\n' + packet['message'])
+1097:ValueError: 
+1099:Traceback (most recent call last):
+1107:KeyError: 'hvthuong'
+1147:ERROR 2026-10-26 10:35:09,047 judge_handler Judge judge01 failed while handling submission 36
+1148:Traceback (most recent call last):
+1149:  File "/home/huy/hvoj/judge/bridge/judge_handler.py", line 490, in on_internal_error
+1150:    raise ValueError('\n\n' + packet['message'])
+1151:ValueError: 
+1153:Traceback (most recent call last):
+1162:KeyError: 'hvthuong'
+--- logs/judge01.log
+103314:ERROR 2026-10-26 05:15:49,838 1202 judge Traceback (most recent call last):
+103323:KeyError: 'hvtich'
+103353:ERROR 2026-10-26 05:16:56,414 1202 judge Unhandled exception in worker process
+103354:ERROR 2026-10-26 05:16:56,414 1202 judge Traceback (most recent call last):
+103363:KeyError: 'hvtich'
+103419:INFO 2026-10-26 05:26:33,093 2256 judge [01m[Khvthuongcpp.cpp:1:1:[m[K [01;31m[Kerror: [m[K‘[01m[Ka[m[K’ does not name a type
+103427:INFO 2026-10-26 05:26:43,562 4485 judge [01m[Khvthuongcpp.cpp:1:1:[m[K [01;31m[Kerror: [m[K‘[01m[Ka[m[K’ does not name a type
+103458:ERROR 2026-10-26 05:27:29,177 1202 judge Unhandled exception in worker process
+103459:ERROR 2026-10-26 05:27:29,177 1202 judge Traceback (most recent call last):
+103467:KeyError: 'hvthuong'
+103473:ERROR 2026-10-26 05:27:47,034 1202 judge Unhandled exception in worker process
+103474:ERROR 2026-10-26 05:27:47,034 1202 judge Traceback (most recent call last):
+103482:KeyError: 'hvthuong'
+103503:ERROR 2026-10-26 05:28:02,736 1202 judge Unhandled exception in worker process
+103504:ERROR 2026-10-26 05:28:02,737 1202 judge Traceback (most recent call last):
+103512:KeyError: 'hvthuong'
+103527:ERROR 2026-10-26 05:28:03,856 1202 judge Unhandled exception in worker process
+103528:ERROR 2026-10-26 05:28:03,856 1202 judge Traceback (most recent call last):
+103536:KeyError: 'hvthuong'
+103543:INFO 2026-10-26 05:28:04,817 2256 judge [01m[Khvthuongcpp.cpp:1:1:[m[K [01;31m[Kerror: [m[K‘[01m[Ka[m[K’ does not name a type
+103599:INFO 2026-10-26 05:35:01,818 4485 judge *** Error compiling '/tmp/tmpnkl4iklc/hvthuong.py'...
+103603:SyntaxError: invalid syntax
+103608:ERROR 2026-10-26 05:35:09,021 1202 judge Unhandled exception in worker process
+103609:ERROR 2026-10-26 05:35:09,021 1202 judge Traceback (most recent call last):
+103618:KeyError: 'hvthuong'
+103691:INFO 2026-10-26 05:46:44,566 6630 judge *** Error compiling '/tmp/tmp17a87s90/hvthuong.py'...
+103695:SyntaxError: invalid syntax
+103775:INFO 2026-10-26 05:46:49,575 6336 judge *** Error compiling '/tmp/tmp1_ctsl78/hvthuong.py'...
+103779:SyntaxError: invalid syntax
+103839:INFO 2026-10-26 05:47:00,226 2256 judge *** Error compiling '/tmp/tmph21bgd0h/hvthuong.py'...
+103843:SyntaxError: invalid syntax
+103898:[01m[Khvhieucpp.cpp:8:16:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K}[m[K’ token
+103934:[01m[Khvhieucpp.cpp:8:16:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K}[m[K’ token
+103945:INFO 2026-10-26 05:47:21,781 6630 judge [01m[Khvtongcpp.cpp:1:1:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K.[m[K’ token
+103953:INFO 2026-10-26 05:47:23,871 6630 judge [01m[Khvtongcpp.cpp:1:1:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K.[m[K’ token
+103985:INFO 2026-10-26 05:48:05,762 6336 judge [01m[Khvtichcpp.cpp:1:1:[m[K [01;31m[Kerror: [m[K‘[01m[Ka[m[K’ does not name a type
+104043:INFO 2026-10-26 05:48:43,570 2256 judge Test case  4 IR [0.025s (0.036s wall) | 9336kb | 325 switches (1 involuntary)] (ZeroDivisionError) {WA}
+104044:INFO 2026-10-26 05:48:43,623 2256 judge Test case  5 IR [0.035s (0.049s wall) | 9336kb | 322 switches (0 involuntary)] (ZeroDivisionError) {WA}
+104161:INFO 2026-10-26 05:50:08,213 1202 judge *** Error compiling '/tmp/tmpu3csprf7/hvhieu.py'...
+104165:SyntaxError: invalid syntax
+
+===== 10. KET THUC KIEM TRA =====

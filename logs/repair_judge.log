@@ -1,0 +1,89 @@
+
+========== HVOJ REPAIR 20261025-234636 ==========
+YAML OK
+--- Problem directories ---
+Directory: /home/huy/hvoj/problem_data
+hvtong
+Directory: /home/huy/vnoj-site/problem_data
+hvtong
+hvhieu
+--- hvhieu init.yml ---
+FOUND: /home/huy/vnoj-site/problem_data/hvhieu/init.yml
+archive: hieu_hai_so_20_test_cases.zip
+checker: standard
+test_cases:
+- in: 001.in
+  out: 001.out
+  points: 1
+- in: 002.in
+  out: 002.out
+  points: 1
+- in: 003.in
+  out: 003.out
+  points: 1
+- in: 004.in
+  out: 004.out
+  points: 1
+- in: 005.in
+  out: 005.out
+  points: 1
+- in: 006.in
+  out: 006.out
+  points: 1
+- in: 007.in
+  out: 007.out
+  points: 1
+- in: 008.in
+  out: 008.out
+  points: 1
+- in: 009.in
+  out: 009.out
+  points: 1
+- in: 010.in
+  out: 010.out
+  points: 1
+- in: 011.in
+  out: 011.out
+  points: 1
+- in: 012.in
+  out: 012.out
+  points: 1
+- in: 013.in
+  out: 013.out
+  points: 1
+- in: 014.in
+  out: 014.out
+  points: 1
+- in: 015.in
+  out: 015.out
+  points: 1
+- in: 016.in
+  out: 016.out
+  points: 1
+- in: 017.in
+  out: 017.out
+  points: 1
+- in: 018.in
+  out: 018.out
+  points: 1
+- in: 019.in
+  out: 019.out
+  points: 1
+- in: 020.in
+  out: 020.out
+  points: 1
+--- Runtime checks ---
+OK: /usr/local/bin/scratch-run
+OK: /usr/bin/g++
+OK: /usr/bin/gcc
+--- Judge processes ---
+2068 DMOJ Judge judge01 on 127.0.0.1:9999                                                                                                                                   
+2505 DMOJ Judge judge01 on 127.0.0.1:9999                                                                                                                                   
+3093 DMOJ Judge judge01 on 127.0.0.1:9999                                                                                                                                   
+3312 DMOJ Judge judge01 on 127.0.0.1:9999                                                  
+4390 DMOJ Judge judge01 on 127.0.0.1:9999                                                                                                                                                  
+
+Da hoan tat kiem tra.
+Log: /home/huy/hvoj/logs/repair_judge.log
+Neu co nhieu Judge, hay dung cac tien trinh cu bang lenh khoi dong chuan cua ban.
+Khong tu dong kill Judge de tranh cat ngang bai dang cham.

@@ -1,0 +1,10 @@
+judges:
+  - id: judge01
+    key: "2b86412ac17ff22af8a439f579fa879705556b13f841fe250dae12852c5180f9"
+
+bridges:
+  - host: 127.0.0.1
+    port: 9999
+    id: judge01
+    key: "2b86412ac17ff22af8a439f579fa879705556b13f841fe250dae12852c5180f9"
+    judge_version: 2

@@ -1,0 +1,259 @@
+
+
+========== 1. THONG TIN HE THONG ==========
+Sun Oct 25 08:59:27 -05 2026
+/home/huy/hvoj
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdd       1007G  5.8G  950G   1% /
+/dev/sdd       1007G  5.8G  950G   1% /
+               total        used        free      shared  buff/cache   available
+Mem:           7.6Gi       880Mi       5.7Gi        30Mi       1.0Gi       6.6Gi
+Swap:          2.0Gi          0B       2.0Gi
+
+
+========== 2. DJANGO SYSTEM CHECK ==========
+System check identified no issues (102 silenced).
+System check identified some issues:
+
+WARNINGS:
+?: (oauth2_provider.W001) RFC 9700 (OAuth 2.0 Security BCP): the OAuth 2.0 implicit grant is enabled (RFC 9700 §2.1.2).
+	HINT: Set OAUTH2_PROVIDER['COMPLIANT_BCP_RFC9700_IMPLICIT_GRANT'] = True to adopt the compliant behavior. This default is scheduled to change in 4.0.
+?: (oauth2_provider.W002) RFC 9700 (OAuth 2.0 Security BCP): the resource owner password credentials grant is enabled (RFC 9700 §2.4).
+	HINT: Set OAUTH2_PROVIDER['COMPLIANT_BCP_RFC9700_PASSWORD_GRANT'] = True to adopt the compliant behavior. This default is scheduled to change in 4.0.
+?: (oauth2_provider.W003) RFC 9700 (OAuth 2.0 Security BCP): the PKCE "plain" code_challenge_method is accepted (RFC 9700 §2.1.1).
+	HINT: Set OAUTH2_PROVIDER['COMPLIANT_BCP_RFC9700_PKCE_METHOD'] = True to adopt the compliant behavior. This default is scheduled to change in 4.0.
+?: (oauth2_provider.W004) RFC 9700 (OAuth 2.0 Security BCP): access tokens are accepted in the URI query string (RFC 9700 §4.3.2).
+	HINT: Set OAUTH2_PROVIDER['COMPLIANT_BCP_RFC9700_ACCESS_TOKEN_TRANSPORT'] = True to adopt the compliant behavior. This default is scheduled to change in 4.0.
+?: (oauth2_provider.W005) RFC 9700 (OAuth 2.0 Security BCP): the RFC 9207 `iss` authorization-response parameter is omitted (RFC 9700 §4.4).
+	HINT: Set OAUTH2_PROVIDER['COMPLIANT_BCP_RFC9700_AUTHZ_RESPONSE_ISS'] = True to adopt the compliant behavior. This default is scheduled to change in 4.0.
+?: (oauth2_provider.W006) RFC 9700 (OAuth 2.0 Security BCP): access and refresh tokens are stored in plaintext (RFC 9700 §4).
+	HINT: Set OAUTH2_PROVIDER['COMPLIANT_BCP_RFC9700_TOKEN_STORAGE'] = True to adopt the compliant behavior. This default is scheduled to change in 4.0.
+?: (oauth2_provider.W007) RFC 9700 (OAuth 2.0 Security BCP): refresh token replay detection is disabled (§4.14.2).
+	HINT: Set OAUTH2_PROVIDER['REFRESH_TOKEN_REUSE_PROTECTION'] = True to revoke the whole token family when a refresh token is replayed. This is a warning because OAUTH2_PROVIDER['COMPLIANT_BCP_RFC9700_REFRESH_TOKEN'] is False; the default is scheduled to change to True in 4.0, making this configuration an error.
+?: (oauth2_provider.W008) RFC 9700 (OAuth 2.0 Security BCP): plaintext `http` redirect URIs are allowed (§2.1).
+	HINT: Remove 'http' from OAUTH2_PROVIDER['ALLOWED_REDIRECT_URI_SCHEMES'] to require https redirect URIs. Note this also disallows native-app loopback (http://127.0.0.1) callbacks per RFC 8252, so keep 'http' if you must support them. This is a warning because OAUTH2_PROVIDER['COMPLIANT_BCP_RFC9700_REDIRECT_URI_SCHEME'] is False; the default is scheduled to change to True in 4.0, making this configuration an error.
+?: (oauth2_provider.W010) RFC 9700 (OAuth 2.0 Security BCP): PKCE is not required (§2.1.1).
+	HINT: Set OAUTH2_PROVIDER['PKCE_REQUIRED'] = True (or a per-client callable). This is a warning because OAUTH2_PROVIDER['COMPLIANT_BCP_RFC9700_PKCE_REQUIRED'] is False; the default is scheduled to change to True in 4.0, making this configuration an error.
+?: (security.W001) You do not have 'django.middleware.security.SecurityMiddleware' in your MIDDLEWARE so the SECURE_HSTS_SECONDS, SECURE_CONTENT_TYPE_NOSNIFF, SECURE_REFERRER_POLICY, SECURE_CROSS_ORIGIN_OPENER_POLICY, and SECURE_SSL_REDIRECT settings will have no effect.
+?: (security.W009) Your SECRET_KEY has less than 50 characters, less than 5 unique characters, or it's prefixed with 'django-insecure-' indicating that it was generated automatically by Django. Please generate a long and random value, otherwise many of Django's security-critical features will be vulnerable to attack.
+?: (security.W012) SESSION_COOKIE_SECURE is not set to True. Using a secure-only session cookie makes it more difficult for network traffic sniffers to hijack user sessions.
+?: (security.W016) You have 'django.middleware.csrf.CsrfViewMiddleware' in your MIDDLEWARE, but you have not set CSRF_COOKIE_SECURE to True. Using a secure-only CSRF cookie makes it more difficult for network traffic sniffers to steal the CSRF token.
+?: (security.W018) You should not have DEBUG set to True in deployment.
+
+System check identified 14 issues (102 silenced).
+
+
+========== 3. MIGRATION ==========
+[X]  judge.0239_site_data_batch_prerequisites
+[X]  judge.0240_add_submission_index
+[X]  judge.0241_add_submission_contest_user_index
+[X]  judge.0242_problem_org_date_index
+[X]  judge.0243_contest_tag_name_unicode
+[X]  judge.0244_alter_contest_authors_alter_contest_curators_and_more
+[X]  oauth2_provider.0001_initial
+[X]  oauth2_provider.0002_auto_20190406_1805
+[X]  oauth2_provider.0003_auto_20201211_1314
+[X]  oauth2_provider.0004_auto_20200902_2022
+[X]  oauth2_provider.0005_auto_20211222_2352
+[X]  oauth2_provider.0006_alter_application_client_secret
+[X]  oauth2_provider.0007_application_post_logout_redirect_uris
+[X]  oauth2_provider.0008_alter_accesstoken_token
+[X]  oauth2_provider.0009_add_hash_client_secret
+[X]  oauth2_provider.0010_application_allowed_origins
+[X]  oauth2_provider.0011_refreshtoken_token_family
+[X]  oauth2_provider.0012_add_token_checksum
+[X]  oauth2_provider.0013_alter_application_authorization_grant_type_device
+[X]  oauth2_provider.0014_alter_help_text
+[X]  oauth2_provider.0015_refreshtoken_token_checksum
+[X]  oauth2_provider.0016_alter_devicegrant_scope
+[X]  oauth2_provider.0017_application_dcr_created
+[X]  oauth2_provider.0018_resource_indicators
+[X]  oauth2_provider.0019_application_registration_source
+[X]  oauth2_provider.0020_cimd_application_fields
+[X]  oauth2_provider.0021_translatable_field_labels
+[X]  oauth2_provider.0022_refreshtoken_token_family_index
+[X]  redirects.0001_initial
+[X]  redirects.0002_alter_redirect_new_path_help_text
+[X]  registration.0001_initial
+[X]  registration.0002_registrationprofile_activated
+[X]  registration.0003_migrate_activatedstatus
+[X]  registration.0004_supervisedregistrationprofile
+[X]  registration.0005_activation_key_sha256
+[X]  reversion.0001_squashed_0004_auto_20160611_1202
+[X]  reversion.0002_add_index_on_version_for_content_type_and_db
+[X]  sessions.0001_initial
+[X]  sites.0002_alter_domain_unique
+[X]  social_django.0001_initial
+[X]  social_django.0002_add_related_name
+[X]  social_django.0003_alter_email_max_length
+[X]  social_django.0004_auto_20160423_0400
+[X]  social_django.0005_auto_20160727_2333
+[X]  social_django.0006_partial
+[X]  social_django.0007_code_timestamp
+[X]  social_django.0008_partial_timestamp
+[X]  social_django.0009_auto_20191118_0520
+[X]  social_django.0010_uid_db_index
+[X]  urlshortener.0001_initial
+No changes detected
+
+
+========== 4. DATABASE ==========
+Database query: (1,)
+
+
+========== 5. REDIS ==========
+[OK] Cổng 6379 kết nối được
+PONG
+
+
+========== 6. RABBITMQ / CELERY ==========
+[OK] Cổng 5672 kết nối được
+Status of node rabbit@DESKTOP-5IS3UQR ...
+[1mRuntime[0m
+
+OS PID: 2891
+OS: Linux
+Uptime (seconds): 54
+Is under maintenance?: false
+RabbitMQ version: 3.9.27
+RabbitMQ release series support status: supported
+Node name: rabbit@DESKTOP-5IS3UQR
+Erlang configuration: Erlang/OTP 24 [erts-12.2.1] [source] [64-bit] [smp:12:12] [ds:12:12:10] [async-threads:1] [jit]
+Crypto library: OpenSSL 3.0.2 15 Mar 2022
+Erlang processes: 291 used, 1048576 limit
+Scheduler run queue: 1
+Cluster heartbeat timeout (net_ticktime): 60
+
+[1mPlugins[0m
+
+Enabled plugin file: /etc/rabbitmq/enabled_plugins
+Enabled plugins:
+
+
+[1mData directory[0m
+
+Node data directory: /var/lib/rabbitmq/mnesia/rabbit@DESKTOP-5IS3UQR
+Raft data directory: /var/lib/rabbitmq/mnesia/rabbit@DESKTOP-5IS3UQR/quorum/rabbit@DESKTOP-5IS3UQR
+
+[1mConfig files[0m
+
+
+[1mLog file(s)[0m
+
+ * /var/log/rabbitmq/rabbit@DESKTOP-5IS3UQR.log
+ * /var/log/rabbitmq/rabbit@DESKTOP-5IS3UQR_upgrade.log
+ * <stdout>
+
+
+========== 7. CAC CONG DICH VU ==========
+[OK] Cổng 8000 kết nối được
+[OK] Cổng 9999 kết nối được
+[OK] Cổng 3306 kết nối được
+[OK] Cổng 6379 kết nối được
+[OK] Cổng 5672 kết nối được
+
+
+========== 8. CAC TIEN TRINH ==========
+    774    01:33:14 .venv/bin/python manage.py runserver 0.0.0.0:8000 --noreload
+    779    01:33:14 .venv/bin/python manage.py runbridged
+    912    01:28:51 DMOJ Judge judge01 on 127.0.0.1:9999
+
+
+========== 9. CAC TRANG WEB ==========
+[HTTP 200] /
+[HTTP 200] /accounts/login/
+[HTTP 200] /accounts/register/
+[HTTP 200] /admin/
+[HTTP 200] /problems/
+[HTTP 200] /contests/
+[HTTP 200] /submissions/
+
+
+========== 10. EXECUTABLE JUDGE ==========
+[OK] .venv/bin/dmoj
+[OK] .venv/bin/dmoj-cli
+[OK] /usr/local/bin/scratch-run
+Name: dmoj
+Version: 4.1.0
+Summary: The judge component of the DMOJ: Modern Online Judge platform
+Home-page: https://github.com/DMOJ/judge-server
+Author: DMOJ Team
+Author-email: contact@dmoj.ca
+License: 
+Location: /home/huy/hvoj/.venv/lib/python3.10/site-packages
+Requires: pygments, pylru, pyyaml, setproctitle, termcolor, watchdog
+Required-by: 
+/usr/bin/python3
+/usr/bin/g++
+/usr/bin/gcc
+Python 3.10.12
+g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+g++-11 (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+
+
+========== 11. CAU HINH VA BIEN MOI TRUONG ==========
+ls: cannot access 'local_settings.py': No such file or directory
+-rw-r--r-- 1 huy huy  659 Oct 25 07:25 judge01.yml
+-rwxr-xr-x 1 huy huy 1343 Oct 25 04:09 start_judge01_background.sh
+[INFO] Không in khóa judge hoặc mật khẩu để tránh lộ thông tin.
+
+
+========== 12. LOI GAN DAY TRONG LOG ==========
+--- logs/bridge.log ---
+ERROR 2026-10-25 06:52:20,182 judge_handler {"judge": "judge01", "address": "[127.0.0.1]:33560", "submission": false, "info": "malformed json packet"}
+ERROR 2026-10-25 06:52:20,910 judge_handler judge01: Malformed packet: {'name': 'supported-problems', 'problems': [['gs01', 1792892746.7847996]]}
+ERROR 2026-10-25 06:52:20,911 judge_handler {"judge": "judge01", "address": "[127.0.0.1]:49896", "submission": false, "info": "malformed json packet"}
+ERROR 2026-10-25 06:52:20,911 judge_handler judge01: Malformed packet: {'name': 'supported-problems', 'problems': [['gs01', 1792892746.7847996]]}
+ERROR 2026-10-25 06:52:20,912 judge_handler {"judge": "judge01", "address": "[127.0.0.1]:33568", "submission": false, "info": "malformed json packet"}
+ERROR 2026-10-25 06:52:20,912 judge_handler judge01: Malformed packet: {'name': 'supported-problems', 'problems': [['gs01', 1792892746.7847996]]}
+ERROR 2026-10-25 06:52:20,913 judge_handler {"judge": "judge01", "address": "[127.0.0.1]:46810", "submission": false, "info": "malformed json packet"}
+ERROR 2026-10-25 06:52:20,912 judge_handler judge01: Malformed packet: {'name': 'supported-problems', 'problems': [['gs01', 1792892746.7847996]]}
+ERROR 2026-10-25 06:52:20,914 judge_handler {"judge": "judge01", "address": "[127.0.0.1]:33560", "submission": false, "info": "malformed json packet"}
+ERROR 2026-10-25 06:52:20,915 judge_handler judge01: Malformed packet: {'name': 'supported-problems', 'problems': [['gs01', 1792892746.7847996]]}
+ERROR 2026-10-25 06:52:20,917 judge_handler {"judge": "judge01", "address": "[127.0.0.1]:46810", "submission": false, "info": "malformed json packet"}
+ERROR 2026-10-25 06:52:20,915 judge_handler judge01: Malformed packet: {'name': 'supported-problems', 'problems': [['gs01', 1792892746.7847996]]}
+ERROR 2026-10-25 06:52:20,919 judge_handler {"judge": "judge01", "address": "[127.0.0.1]:33560", "submission": false, "info": "malformed json packet"}
+ERROR 2026-10-25 06:52:20,916 judge_handler judge01: Malformed packet: {'name': 'supported-problems', 'problems': [['gs01', 1792892746.7847996]]}
+ERROR 2026-10-25 06:52:20,920 judge_handler {"judge": "judge01", "address": "[127.0.0.1]:49896", "submission": false, "info": "malformed json packet"}
+ERROR 2026-10-25 06:52:20,916 judge_handler judge01: Malformed packet: {'name': 'supported-problems', 'problems': [['gs01', 1792892746.7847996]]}
+ERROR 2026-10-25 06:52:20,921 judge_handler {"judge": "judge01", "address": "[127.0.0.1]:33568", "submission": false, "info": "malformed json packet"}
+Traceback (most recent call last):
+OSError: [Errno 98] Address already in use
+Traceback (most recent call last):
+OSError: [Errno 98] Address already in use
+Traceback (most recent call last):
+OSError: [Errno 98] Address already in use
+Traceback (most recent call last):
+OSError: [Errno 98] Address already in use
+--- logs/judge01.log ---
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+    self.conn = socket.create_connection((self.host, self.port), timeout=5)
+TimeoutError: timed out
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+    self.conn = socket.create_connection((self.host, self.port), timeout=5)
+TimeoutError: timed out
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+    self.conn = socket.create_connection((self.host, self.port), timeout=5)
+TimeoutError: timed out
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+    self.conn = socket.create_connection((self.host, self.port), timeout=5)
+TimeoutError: timed out
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+    self.conn = socket.create_connection((self.host, self.port), timeout=5)
+TimeoutError: timed out
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+    self.conn = socket.create_connection((self.host, self.port), timeout=5)
+ConnectionRefusedError: [Errno 111] Connection refused
+nohup: failed to run command '.venv/bin/dmoj': No such file or directory
+[INFO] Chưa có logs/auto_repair.log
+
+
+========== KET THUC ==========
+Báo cáo đầy đủ: /home/huy/hvoj/logs/full_audit_20261025_085927.txt
+Đã hoàn thành kiểm tra. Những mục [LOI]/[THIEU]/[CAN XEM] cần được phân loại trước khi sửa.

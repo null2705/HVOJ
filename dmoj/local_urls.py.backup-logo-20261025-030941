@@ -1,0 +1,26 @@
+
+
+
+# LOCAL SCRATCH SUBMISSION FILES
+# Chi phuc vu tep upload trong che do DEBUG de thu nghiem.
+from django.conf import settings as _scratch_settings
+from django.urls import re_path as _scratch_re_path
+from django.views.static import serve as _scratch_serve
+from pathlib import Path as _ScratchPath
+
+if _scratch_settings.DEBUG:
+    _scratch_upload_dir = getattr(
+        _scratch_settings, "SUBMISSION_FILE_UPLOAD_MEDIA_DIR", "submission_file"
+    )
+    from django.core.files.storage import default_storage
+    _scratch_upload_root = _ScratchPath(
+        default_storage.path(_scratch_upload_dir)
+    ).resolve()
+
+    urlpatterns.append(
+        _scratch_re_path(
+            r"^submission_file/(?P<path>.*)$",
+            _scratch_serve,
+            {"document_root": str(_scratch_upload_root)},
+        )
+    )

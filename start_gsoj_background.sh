@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+set -u
+
+cd "$HOME/hvoj" || exit 1
+mkdir -p logs
+
+# Tìm Python có Django
+PY=""
+for p in .venv/bin/python venv/bin/python env/bin/python; do
+    if [ -x "$p" ] && "$p" -c 'import django' >/dev/null 2>&1; then
+        PY="$PWD/$p"
+        break
+    fi
+done
+
+if [ -z "$PY" ]; then
+    for p in python3 python; do
+        if command -v "$p" >/dev/null 2>&1 &&
+           "$p" -c 'import django' >/dev/null 2>&1; then
+            PY="$(command -v "$p")"
+            break
+        fi
+    done
+fi
+
+if [ -z "$PY" ]; then
+    echo "LOI: Khong tim thay Python co Django."
+    echo "Hay kiem tra moi truong ao cua HVOJ."
+    exit 1
+fi
+
+echo "Python: $PY"
+
+# Lấy danh sách lệnh quản lý Django mà dự án thực sự hỗ trợ
+"$PY" manage.py help >/tmp/hvoj_manage_help.txt 2>&1 || {
+    cat /tmp/hvoj_manage_help.txt
+    exit 1
+}
+
+start_bg() {
+    name="$1"
+    shift
+    logfile="$PWD/logs/$name.log"
+    pidfile="$PWD/logs/$name.pid"
+
+    if [ -f "$pidfile" ] && kill -0 "$(cat "$pidfile")" 2>/dev/null; then
+        echo "$name dang chay (PID $(cat "$pidfile"))"
+        return
+    fi
+
+    nohup "$@" >>"$logfile" 2>&1 </dev/null &
+    pid=$!
+    echo "$pid" > "$pidfile"
+    sleep 2
+
+    if kill -0 "$pid" 2>/dev/null; then
+        echo "DA KHOI DONG $name (PID $pid)"
+    else
+        echo "CAN KIEM TRA $name; xem logs/$name.log"
+        rm -f "$pidfile"
+    fi
+}
+
+# Web server
+if curl -fsS http://127.0.0.1:8000/ >/dev/null 2>&1; then
+    echo "Web server da phuc vu tai cong 8000."
+else
+    start_bg web "$PY" manage.py runserver 0.0.0.0:8000 --noreload
+fi
+
+# Bridge: chỉ chạy nếu lệnh thực sự có trong dự án
+if grep -qE '(^|[[:space:]])runbridged([[:space:]]|$)' /tmp/hvoj_manage_help.txt; then
+    start_bg bridge "$PY" manage.py runbridged
+else
+    echo "Chua xac nhan lenh runbridged trong manage.py; bo qua."
+fi
+
+# Kiểm tra judge worker và cấu hình judge
+echo
+echo "=== Kiem tra judge ==="
+if command -v dmoj >/dev/null 2>&1; then
+    echo "Tim thay executable dmoj: $(command -v dmoj)"
+else
+    echo "Khong tim thay executable dmoj trong PATH."
+fi
+
+find . -maxdepth 4 -type f \
+    \( -iname '*judge*.yml' -o -iname '*judge*.yaml' -o -iname '*judge*.json' \) \
+    -not -path './.git/*' -print 2>/dev/null | head -30
+
+echo
+echo "Khong tu dong khoi dong judge worker khi chua xac dinh"
+echo "dung executable va file cau hinh cua judge01."
+echo
+echo "Log nam trong: $PWD/logs/"
+echo "Xem log: tail -n 80 logs/web.log logs/bridge.log"

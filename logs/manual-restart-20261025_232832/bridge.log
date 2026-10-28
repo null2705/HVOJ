@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/home/huy/hvoj/manage.py", line 14, in <module>
+    execute_from_command_line(sys.argv)
+  File "/home/huy/hvoj/.venv/lib/python3.10/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/huy/hvoj/.venv/lib/python3.10/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/huy/hvoj/.venv/lib/python3.10/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/huy/hvoj/.venv/lib/python3.10/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/huy/hvoj/judge/management/commands/runbridged.py", line 8, in handle
+    judge_daemon()
+  File "/home/huy/hvoj/judge/bridge/daemon.py", line 27, in judge_daemon
+    judge_server = Server(
+  File "/home/huy/hvoj/judge/bridge/server.py", line 11, in __init__
+    self.servers = [ThreadingTCPListener(address, handler) for address in addresses]
+  File "/home/huy/hvoj/judge/bridge/server.py", line 11, in <listcomp>
+    self.servers = [ThreadingTCPListener(address, handler) for address in addresses]
+  File "/usr/lib/python3.10/socketserver.py", line 452, in __init__
+    self.server_bind()
+  File "/usr/lib/python3.10/socketserver.py", line 466, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [Errno 98] Address already in use

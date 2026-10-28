@@ -1,0 +1,50 @@
+===== TRẠNG THÁI =====
+2054 .venv/bin/python manage.py runbridged
+3085 .venv/bin/python manage.py runserver 0.0.0.0:8000
+3093 /home/huy/hvoj/.venv/bin/python .venv/bin/dmoj -c /home/huy/hvoj/judge01.yml -p 9999 127.0.0.1 judge01 2b86412ac17ff22af8a439f579fa879705556b13f841fe250dae12852c5180f9
+3116 /home/huy/hvoj/.venv/bin/python manage.py runserver 0.0.0.0:8000
+
+===== WEB =====
+HTTP 200
+
+===== RUNTIME =====
+/usr/local/bin/scratch-run
+/usr/bin/python3
+/usr/bin/g++
+
+===== LOG LỖI MỚI =====
+INFO 2026-10-26 04:19:20,408 judge_list Free judges: 2
+INFO 2026-10-26 04:19:20,408 judge_list Dispatched submission 14 to: judge01
+INFO 2026-10-26 04:19:20,414 judge_handler Submission acknowledged: 14
+INFO 2026-10-26 04:19:22,968 judge_handler judge01: Submission generated compiler messages: 14
+INFO 2026-10-26 04:19:22,984 judge_handler judge01: Grading has begun on: 14
+INFO 2026-10-26 04:19:23,100 judge_handler judge01: 10 test case(s) completed on: 14
+INFO 2026-10-26 04:19:23,305 judge_handler judge01: 10 test case(s) completed on: 14
+INFO 2026-10-26 04:19:23,370 judge_handler judge01: Grading has ended on: 14
+INFO 2026-10-26 04:19:23,370 judge_list Judge available after grading 14: judge01
+INFO 2026-10-26 04:21:16,442 judge_list Free judges: 0
+INFO 2026-10-26 04:21:16,442 judge_list Queued submission: 5
+INFO 2026-10-26 04:23:19,222 daemon Exiting due to SIGTERM
+INFO 2026-10-25 23:19:23,229 2068 judge Test case 17 WA [0.007s (0.010s wall) | 3492kb | 19 switches (0 involuntary)] 
+INFO 2026-10-25 23:19:23,267 2068 judge Test case 18 WA [0.007s (0.013s wall) | 3492kb | 19 switches (0 involuntary)] 
+INFO 2026-10-25 23:19:23,283 2068 judge Test case 19 WA [0.005s (0.008s wall) | 3492kb | 19 switches (0 involuntary)] 
+INFO 2026-10-25 23:19:23,304 2068 judge Test case 20 WA [0.010s (0.015s wall) | 3492kb | 19 switches (0 involuntary)] 
+INFO 2026-10-25 23:19:23,305 2068 judge Done grading hvtong/14.
+
+Self-testing executors
+Self-testing AWK:    Success [0.006s, 2460 KB]   awk 1.3.4
+Self-testing C:      Success [0.005s, 1448 KB]   gcc 11
+Self-testing C11:    Success [0.008s, 1448 KB]   gcc11 11
+Self-testing CPP03:  Success [0.003s, 3540 KB]   g++ 11
+Self-testing CPP11:  [26/Oct/2026 04:22:19] "GET /static/icons/dark.svg HTTP/1.1" 200 711
+[26/Oct/2026 04:22:19] "GET /static/icons/light.svg HTTP/1.1" 200 384
+[26/Oct/2026 04:22:19] "GET /static/vnoj/sourcesanspro/v14/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7l.woff2 HTTP/1.1" 200 16112
+[26/Oct/2026 04:22:19] "GET /static/vnoj/sourcesanspro/v14/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNq7lqDY.woff2 HTTP/1.1" 200 14960
+[26/Oct/2026 04:22:19] "GET /static/libs/fontawesome/fontawesome-webfont.woff2 HTTP/1.1" 200 56780
+[26/Oct/2026 04:22:19] "GET /static-upload/81306b74-ea1d-4d35-8c32-785971dec997.png HTTP/1.1" 200 180233
+[26/Oct/2026 04:22:19] "GET /static/vnoj/sourcesanspro/v14/6xK3dSBYKcSV-LCoeQqfX1RYOo3qN67lqDY.woff2 HTTP/1.1" 200 5804
+[26/Oct/2026 04:22:19] "GET /static/icons/favicon-32x32.png HTTP/1.1" 200 1585
+[26/Oct/2026 04:22:20] "GET / HTTP/1.1" 200 40908
+Watching for file changes with StatReloader
+INFO 2026-10-26 04:23:34,113 autoreload Watching for file changes with StatReloader
+[26/Oct/2026 04:23:35] "GET / HTTP/1.1" 200 31724

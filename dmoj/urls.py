@@ -1,6 +1,7 @@
 import os
 
 from django.conf import settings
+from django.contrib.flatpages.views import flatpage as hvoj_flatpage_view
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.contrib.sitemaps.views import sitemap
@@ -101,6 +102,7 @@ def paged_list_view(view, name):
 
 
 urlpatterns = [
+    path('about/', hvoj_flatpage_view, {'url': '/about/'}, name='hvoj_about'),
     path('', blog.PostList.as_view(template_name='home.html', title=_('Home')), kwargs={'page': 1}, name='home'),
     path('500/', exception),
     path('admin/', admin.site.urls),

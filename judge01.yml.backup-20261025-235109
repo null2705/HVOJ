@@ -1,0 +1,25 @@
+judge_version: 2
+id: judge01
+key: 2b86412ac17ff22af8a439f579fa879705556b13f841fe250dae12852c5180f9
+problem_storage_globs:
+- /home/huy/hvoj/problem_data/*
+runtime:
+  scratch-run: /usr/local/bin/scratch-run
+  as_x64: /usr/bin/x86_64-linux-gnu-as
+  as_x86: /usr/bin/as
+  awk: /usr/bin/mawk
+  cat: /usr/bin/cat
+  g++: /usr/bin/g++
+  g++11: /usr/bin/g++
+  g++14: /usr/bin/g++
+  g++17: /usr/bin/g++
+  g++20: /usr/bin/g++-11
+  gcc: /usr/bin/gcc
+  gcc11: /usr/bin/gcc
+  ld_x64: /usr/bin/x86_64-linux-gnu-ld
+  ld_x86: /usr/bin/ld
+  perl: /usr/bin/perl
+  python3: /home/huy/hvoj/.venv/bin/python3
+  sed: /usr/bin/sed
+problem_storage_root:
+- /home/huy/hvoj/problem_data
